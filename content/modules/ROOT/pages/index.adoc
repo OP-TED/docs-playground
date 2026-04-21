@@ -30,7 +30,7 @@ The eProcurement Ontology provides the formal, semantic foundation for the creat
 [.tile]
 .TED Open Data
 ****
-Query and connect to TED Open Data using SPARQL. Convert notice XML documents to RDF we create appropriate using RML (the RDF Mapping Language). Reuse TED Data from the TED Website
+Query TED Open Data through our SPARQL endpoint or download TED notice XML files directly. Reuse our RML (RDF Mapping Language) mappings to transform XML notices into RDF.
 
 [.button]
 <<ODS:ROOT:index.adoc#, Read the docs>>
