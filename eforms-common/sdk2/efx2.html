@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>What&#8217;s new in EFX 2 :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms-common/sdk2/efx2.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta name="google-site-verification" content="google8bce9cd167a02a39.html" />
+<script>var uiRootPath = '../../_'</script>
+<script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>  </head>
+  <body class="article">
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
+  <script type="text/javascript">
+    (function (window, document, dataLayerName, id) {
+      window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
+      var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+      function stgCreateCookie(a, b, c) {var d = ""; if (c) {var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString(); f = "; SameSite=Strict"} document.cookie = a + "=" + b + d + f + "; path=/"}
+      var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug"); stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+      var qP = []; dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug"); var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+      tags.async = !0, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+      !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
+    })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="https://docs.ted.europa.eu">TED Developer Docs</a>
+            </div>
+            <div class="text-eu-subtext-label">
+                <a href="https://docs.ted.europa.eu">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="body">
+<div class="nav-container" data-component="eforms-common" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">eForms SDK</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../FAQ/index.html">eForms FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../roadmap/index.html">SDK Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../articles/eforms-change-management.html">eForms Change Management</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../versioning/index.html">SDK Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../active-versions/index.html">Active SDK Versions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../preview/index.html">Preview Environment</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><a href="https://docs.ted.europa.eu/eforms-sdk-explorer" target="_blank" rel="noopener">SDK Explorer</a></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.14</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/schema/index.html">eForms Specification</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/reference/index.html">Metadata Reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.14</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/fields/index.html">Field Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/codelists/index.html">Codelists</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/notice-types/index.html">Notice Types</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/viewer-templates/index.html">View Templates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/translations/index.html">Translations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/schemas/index.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/schematrons/index.html">Schematron</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/efx/index.html">EFX Grammar</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.14</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/guide/index.html">Start Here</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/guide/understanding-the-sdk.html">Understanding the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/guide/sdk-glossary.html">SDK glossary</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Working with the SDK</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eforms/latest/guide/notice-forms.html">Create the forms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eforms/latest/guide/xml-generation.html">Generate XML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eforms/latest/guide/visualisation.html">Visualise notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../eforms/latest/guide/validation.html">Validate notices</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../eforms/latest/guide/implementing-eforms-without-the-sdk.html">Working without the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>SDK Explorer</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><a href="https://docs.ted.europa.eu/eforms-sdk-explorer" target="_blank" rel="noopener">Launch SDK Explorer</a></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Java Libraries</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../efx-toolkit/index.html">EFX Toolkit</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../eforms-core/index.html">eForms Core</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Sample Applications</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-viewer/index.html">Notice Viewer (Java)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-editor/index.html">Notice Editor (Java)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title dim">Select a product/version</span>
+          <span class="version">&nbsp;</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../eforms/latest/index.html">1.14</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.13/index.html">1.13</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.12/index.html">1.12</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../EPO/latest/index.html">5.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/5.1/index.html">5.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/5/index.html">5.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/4.2/index.html">4.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/4.1/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ESPD-EDM/latest/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/4.0.0/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../M2O/latest/index.html">Model2Owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../M2O/latest/index.html">3.1.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../api/latest/index.html">TED API</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../api/latest/index.html">3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../api/2.0/index.html">2.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ODS/latest/index.html">TED Open Data</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ODS/latest/index.html">1.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">eForms SDK</a></li>
+    <li><a href="efx2.html">What&#8217;s new in EFX 2</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">What&#8217;s new in EFX 2</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This is a pre-release version of this document.
+ The eForms SDK 2.0.0 is still under development.
+ This notice will be removed when the document is finalized.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>EFX-2 is the version of EFX released with SDK 2.0.0. EFX-2 has two distinct language flavors&#8201;&#8212;&#8201;<strong>EFX Templates</strong> and <strong>EFX Rules</strong>&#8201;&#8212;&#8201;both built on the shared <strong>EFX Expressions</strong> syntax which they extend for their specific applications.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_backward_compatibility"><a class="anchor" href="#_backward_compatibility"></a>Backward compatibility</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EFX-2 contains new features that are not supported by EFX-1. Most EFX-1 expressions are still valid EFX-2 expressions, but several changes require modifications:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sequence literals now use <code>[&#8230;&#8203;]</code> instead of <code>(&#8230;&#8203;)</code>.</p>
+</li>
+<li>
+<p>Codelist identifiers now use <code>[&#8230;&#8203;codelistName]</code> instead of <code>(codelistName)</code>. The <code>#codelistName</code> notation is still supported but will be removed by beta.1.</p>
+</li>
+<li>
+<p>The <code>measure</code> type has been renamed to <code>duration</code>, and related functions have been renamed accordingly (<code>add-measure</code> &#8594; <code>add-duration</code>, <code>subtract-measure</code> &#8594; <code>subtract-duration</code>).</p>
+</li>
+<li>
+<p>XPath axis specifiers have been removed.</p>
+</li>
+<li>
+<p>Cross-notice references (<code>notice(&#8230;&#8203;)</code>) have been removed, replaced by dynamic API functions in EFX Rules.</p>
+</li>
+<li>
+<p>The EFX-1 expression syntax (<code>{context} ${expression}</code>) is still supported but will likely be removed by beta.1 in favour of <code>WITH context COMPUTE expression</code>.</p>
+</li>
+<li>
+<p>The EFX-1 template line syntax (<code>{context} template</code>) is still supported but will likely be removed by beta.1 in favour of <code>WITH context DISPLAY template;</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_efx_expressions"><a class="anchor" href="#_efx_expressions"></a>EFX Expressions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EFX Expressions are the shared building blocks used in both EFX Templates and EFX Rules.</p>
+</div>
+<div class="sect2">
+<h3 id="_with_compute_syntax"><a class="anchor" href="#_with_compute_syntax"></a><code>WITH ... COMPUTE</code> syntax</h3>
+<div class="paragraph">
+<p>Expressions can now be written as <code>WITH context COMPUTE expression</code>, improving readability over the EFX-1 <code>{context} ${expression}</code> syntax.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// EFX-1 style:
+{BT-23-Procedure} ${BT-23-Procedure in #main-activity}
+
+// EFX-2 style:
+WITH BT-23-Procedure COMPUTE BT-23-Procedure in [...main-activity]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_improved_type_safety"><a class="anchor" href="#_improved_type_safety"></a>Improved type safety</h3>
+<div class="paragraph">
+<p>The grammar has been reorganised to enforce a stricter distinction between scalar and sequence types. Ambiguities in late-binding have been removed. Variables and parameters can now be declared with sequence types using the <code>type*</code> notation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Sequence parameter declaration
+text*:$codes
+
+// Sequence variable declaration
+text*:$lot-ids = [for text:$id in BT-137-Lot return $id]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_working_with_sequences"><a class="anchor" href="#_working_with_sequences"></a>Working with sequences</h3>
+<div class="paragraph">
+<p>Sequence literal syntax now uses <code>[&#8230;&#8203;]</code> instead of <code>(&#8230;&#8203;)</code> to remove ambiguity with parenthesised expressions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// EFX-1 style:
+BT-23-Procedure in ('works', 'supplies', 'services')
+
+// EFX-2 style:
+BT-23-Procedure in ['works', 'supplies', 'services']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The codelist expansion operator has been changed to <code>[&#8230;&#8203;codelistName]</code> for consistency. The <code>#codelistName</code> notation is still supported but will be removed by beta.1.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Legacy notation (to be removed):
+BT-23-Procedure in #main-activity
+
+// New codelist expansion:
+BT-23-Procedure in [...main-activity]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>New conditions allow testing sequences directly:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sequence is [not] empty</code>&#8201;&#8212;&#8201;tests whether a sequence has any elements.</p>
+</li>
+<li>
+<p><code>sequence has [no] duplicates</code>&#8201;&#8212;&#8201;tests whether all elements in a sequence are distinct.</p>
+</li>
+<li>
+<p><code>expression is [not] unique in sequence</code>&#8201;&#8212;&#8201;tests whether a value appears exactly once in a sequence.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Iterations now support a <code>DISTINCT</code> modifier to deduplicate results, and can return sequences to concatenate results:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Deduplicated iteration results:
+for text:$code in BT-263-Procedure return distinct $code
+
+// Returning sequences from iterations (concatenation):
+// Each lot contains multiple additional classifications (repeatable node),
+// so accessing BT-263-Lot returns a sequence that gets concatenated.
+for context:$lot in ND-Lot return $lot::BT-263-Lot</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_node_presence_testing"><a class="anchor" href="#_node_presence_testing"></a>Node presence testing</h3>
+<div class="paragraph">
+<p>Presence conditions (<code>is present</code> / <code>is not present</code>) can now be applied to node references in addition to field references:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">ND-Lot is present
+ND-Part is not present</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_field_context_indexing"><a class="anchor" href="#_field_context_indexing"></a>Field context indexing</h3>
+<div class="paragraph">
+<p>Field contexts now support indexers, allowing expressions to select a specific occurrence of a repeatable field context by position:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Access the second lot's procurement scope:
+ND-Lot[2]::BT-262-Lot</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_field_properties"><a class="anchor" href="#_field_properties"></a>Field properties</h3>
+<div class="paragraph">
+<p>EFX-2 introduces the ability to access properties of a field using the <code>field:property</code> syntax. Three categories of field properties are available:</p>
+</div>
+<div class="sect3">
+<h4 id="_privacy_controls"><a class="anchor" href="#_privacy_controls"></a>Privacy controls</h4>
+<div class="paragraph">
+<p>Expressions can access privacy-related properties of fields withheld from publication. These properties allow rules and templates to reason about the privacy status of fields without having to reference the underlying privacy fields (e.g. BT-197, BT-198) by name:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>field:privacyCode</code>&#8201;&#8212;&#8201;the privacy code of the field.</p>
+</li>
+<li>
+<p><code>field:publicationDate</code>&#8201;&#8212;&#8201;the publication date for a withheld field.</p>
+</li>
+<li>
+<p><code>field:justificationCode</code>&#8201;&#8212;&#8201;the justification code for withholding.</p>
+</li>
+<li>
+<p><code>field:justificationDescription</code>&#8201;&#8212;&#8201;the justification description.</p>
+</li>
+<li>
+<p><code>field:wasWithheld</code>, <code>field:isWithheld</code>, <code>field:isWithholdable</code>, <code>field:isDisclosed</code>, <code>field:isMasked</code>&#8201;&#8212;&#8201;boolean properties indicating privacy status.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Access the publication date of BT-105-Procedure without referencing BT-197 directly:
+BT-105-Procedure:publicationDate
+
+// Access the justification code:
+BT-105-Procedure:justificationCode</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_raw_value_access"><a class="anchor" href="#_raw_value_access"></a>Raw value access</h4>
+<div class="paragraph">
+<p><code>field:rawValue</code> provides access to the raw string value of a field, bypassing type-specific parsing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">BT-05(a)-notice:rawValue</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_new_built_in_functions"><a class="anchor" href="#_new_built_in_functions"></a>New built-in functions</h3>
+<div class="sect3">
+<h4 id="_working_with_numbers"><a class="anchor" href="#_working_with_numbers"></a>Working with numbers</h4>
+<div class="paragraph">
+<p><code>min</code>, <code>max</code>, <code>average</code>&#8201;&#8212;&#8201;aggregate functions on numeric sequences.<br>
+<code>absolute</code>&#8201;&#8212;&#8201;absolute value.<br>
+<code>round</code>, <code>round-down</code>, <code>round-up</code>&#8201;&#8212;&#8201;rounding functions.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_working_with_strings"><a class="anchor" href="#_working_with_strings"></a>Working with strings</h4>
+<div class="paragraph">
+<p><code>substring-before</code>, <code>substring-after</code>&#8201;&#8212;&#8201;split strings around a delimiter.<br>
+<code>normalize-space</code>&#8201;&#8212;&#8201;collapse and trim whitespace.<br>
+<code>trim</code>, <code>trim-left</code>, <code>trim-right</code>&#8201;&#8212;&#8201;whitespace trimming.<br>
+<code>pad-left</code>, <code>pad-right</code>&#8201;&#8212;&#8201;string padding.<br>
+<code>repeat</code>&#8201;&#8212;&#8201;repeat a string N times.<br>
+<code>replace</code>, <code>replace-regex</code>&#8201;&#8212;&#8201;string replacement (literal and regex).<br>
+<code>split</code>&#8201;&#8212;&#8201;split a string into a sequence by delimiter.<br>
+<code>url-encode</code>&#8201;&#8212;&#8201;URL encoding.<br>
+<code>capitalize-first</code>&#8201;&#8212;&#8201;capitalize the first character.<br>
+<code>index-of-substring</code>&#8201;&#8212;&#8201;find the position of a substring within a string.<br>
+<code>empty</code>&#8201;&#8212;&#8201;test whether a string is empty.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_working_with_dates_times_and_durations"><a class="anchor" href="#_working_with_dates_times_and_durations"></a>Working with dates, times and durations</h4>
+<div class="paragraph">
+<p><code>year</code>, <code>month</code>, <code>day</code>&#8201;&#8212;&#8201;extract components from a date.<br>
+<code>hours</code>, <code>minutes</code>, <code>seconds</code>&#8201;&#8212;&#8201;extract components from a time.<br>
+<code>years</code>, <code>months</code>, <code>days</code>&#8201;&#8212;&#8201;extract components from a duration.<br>
+<code>current-date</code>, <code>current-time</code>&#8201;&#8212;&#8201;return the current date or time.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_working_with_sequences_2"><a class="anchor" href="#_working_with_sequences_2"></a>Working with sequences</h4>
+<div class="paragraph">
+<p><code>sort</code>, <code>reverse</code>&#8201;&#8212;&#8201;sequence ordering.<br>
+<code>subsequence</code>&#8201;&#8212;&#8201;extract a sub-range from a sequence.<br>
+<code>index-of</code>&#8201;&#8212;&#8201;find the position of an element in a sequence.<br>
+<code>get-duplicates</code>&#8201;&#8212;&#8201;extract duplicate values from a sequence.<br>
+<code>count-duplicates</code>&#8201;&#8212;&#8201;count the number of duplicate values.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_conversions"><a class="anchor" href="#_type_conversions"></a>Type conversions</h4>
+<div class="paragraph">
+<p><code>text(boolean)</code>, <code>text(date)</code>, <code>text(time)</code>, <code>text(duration)</code>&#8201;&#8212;&#8201;convert values to string.<br>
+<code>number(boolean)</code>&#8201;&#8212;&#8201;convert boolean to number.<br>
+<code>indicator(number)</code>&#8201;&#8212;&#8201;convert number to boolean.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_measure_renamed_to_duration"><a class="anchor" href="#_measure_renamed_to_duration"></a><code>measure</code> renamed to <code>duration</code></h3>
+<div class="paragraph">
+<p>The <code>measure</code> type in EFX-1 was only used for durations, which are a special case because they carry the unit in their value (e.g. <code>P10D</code>) to allow calculations. Renaming to <code>duration</code> frees the <code>measure</code> keyword for other types of measure that can be treated as simple numbers. Related function names have also been updated: <code>add-measure</code> &#8594; <code>add-duration</code>, <code>subtract-measure</code> &#8594; <code>subtract-duration</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_xpath_axes_removed"><a class="anchor" href="#_xpath_axes_removed"></a>XPath axes removed</h3>
+<div class="paragraph">
+<p>Axis specifiers (<code>preceding</code>, <code>following</code>, <code>ancestor</code>, <code>descendant</code>, etc.) were hard to translate to non-XPath target languages and did not add real value to the expressivity of EFX. They have been removed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_efx_templates"><a class="anchor" href="#_efx_templates"></a>EFX Templates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The template language has been enhanced in three areas: more expressive template logic, better reuse and maintainability, and richer output capabilities.</p>
+</div>
+<div class="sect2">
+<h3 id="_template_syntax_and_logic"><a class="anchor" href="#_template_syntax_and_logic"></a>Template syntax and logic</h3>
+<div class="sect3">
+<h4 id="_efx_2_template_syntax"><a class="anchor" href="#_efx_2_template_syntax"></a>EFX-2 template syntax</h4>
+<div class="paragraph">
+<p>Template lines now use <code>WITH context DISPLAY template;</code> instead of the EFX-1 <code>{context} template</code> syntax. Template lines are now semicolon-terminated, and the context declaration is optional&#8201;&#8212;&#8201;allowing template lines that display content without iterating over a context.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// EFX-1 style:
+{BT-22-Procedure} #{name}: $value
+
+// EFX-2 style:
+WITH BT-22-Procedure DISPLAY #{name}: $value;
+
+// Without context (static content):
+2 DISPLAY #{auxiliary|text|procedure};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The EFX-1 syntax is still supported for backward compatibility but will likely be removed by beta.1.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conditional_templates"><a class="anchor" href="#_conditional_templates"></a>Conditional templates</h4>
+<div class="paragraph">
+<p>Template lines can now conditionally render different content using <code>WHEN</code> / <code>OTHERWISE</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">WITH BT-105-Procedure
+  WHEN BT-105-Procedure:isMasked DISPLAY #{name}: #{auxiliary|text|unpublished}
+  OTHERWISE DISPLAY #{name}: #{BT-105-Procedure};</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_navigation_and_summary_sections"><a class="anchor" href="#_navigation_and_summary_sections"></a>Navigation and Summary sections</h4>
+<div class="paragraph">
+<p>View templates can now be structured with <code>---- NAVIGATION ----</code> and <code>---- SUMMARY ----</code> section headers, separating the main content from navigation aids and summary views.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reuse_and_maintainability"><a class="anchor" href="#_reuse_and_maintainability"></a>Reuse and maintainability</h3>
+<div class="sect3">
+<h4 id="_callable_templates"><a class="anchor" href="#_callable_templates"></a>Callable templates</h4>
+<div class="paragraph">
+<p>Templates can be defined once and reused across the template file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Declaration:
+LET template:role-and-name(text:$label-id, text:$org-tpo-id)
+  WHEN $org-tpo-id in OPT-200-Organization-Company
+    DISPLAY #{${$label-id}}: ${BT-500-Organization-Company[OPT-200-Organization-Company == $org-tpo-id]:preferredLanguageText}
+  OTHERWISE
+    DISPLAY #{${$label-id}}: ${BT-500-Organization-TouchPoint[OPT-201-Organization-TouchPoint == $org-tpo-id]:preferredLanguageText};
+
+// Invocation:
+WITH OPT-301-Lot-ReviewOrg
+  INVOKE role-and-name('auxiliary|text|organisation-review', OPT-301-Lot-ReviewOrg);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_user_defined_functions"><a class="anchor" href="#_user_defined_functions"></a>User-defined functions</h4>
+<div class="paragraph">
+<p>Reusable typed functions can be declared with scalar or sequence return types:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">LET indicator:?exists-common-value(text*:$seq1, text*:$seq2) =
+  count(value-intersect($seq1, $seq2)) &gt; 0;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Functions are invoked using the <code>?name(args)</code> syntax.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dictionaries"><a class="anchor" href="#_dictionaries"></a>Dictionaries</h4>
+<div class="paragraph">
+<p>Dictionaries pre-compute key-value lookups, improving performance by avoiding repeated traversals:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">LET $lot-name-by-lot-id INDEX BT-21-Lot BY BT-137-Lot;
+
+// Later, look up the lot name by its identifier:
+$lot-name-by-lot-id[BT-13713-LotResult]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_richer_output"><a class="anchor" href="#_richer_output"></a>Richer output</h3>
+<div class="sect3">
+<h4 id="_hyperlink_blocks"><a class="anchor" href="#_hyperlink_blocks"></a>Hyperlink blocks</h4>
+<div class="paragraph">
+<p>Template content can be linked to URLs using the <code>@{url}</code> syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">WITH BT-505-Organization-Company DISPLAY $value @{$value};</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_character_references_and_escape_sequences"><a class="anchor" href="#_character_references_and_escape_sequences"></a>Character references and escape sequences</h4>
+<div class="paragraph">
+<p>Template text now supports HTML character references (<code>&amp;</code>, <code>&#169;</code>, <code>&#xA9;</code>) and escape sequences.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_formatting_functions"><a class="anchor" href="#_formatting_functions"></a>Formatting functions</h4>
+<div class="paragraph">
+<p>Locale-aware date/time formatting is available through <code>format-short</code>, <code>format-medium</code>, and <code>format-long</code> (template-only functions):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Format a date for display:
+format-medium(BT-05(a)-notice)
+
+// Format a date and time together:
+format-short(BT-05(a)-notice, BT-05(b)-notice)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_efx_rules"><a class="anchor" href="#_efx_rules"></a>EFX Rules</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EFX-2 introduces a complete rules language, allowing business rules to be authored directly in EFX.</p>
+</div>
+<div class="sect2">
+<h3 id="_rules_file_structure"><a class="anchor" href="#_rules_file_structure"></a>Rules file structure</h3>
+<div class="paragraph">
+<p>A rules file consists of optional global declarations followed by one or more validation stages:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">#include "stage-1a.efx"
+
+---- STAGE 2a ----
+
+WITH ND-AuctionTerms
+  ASSERT BT-122-Lot is not present
+    AS ERROR R-J6A-ZY4
+    FOR BT-122-Lot
+    IN 1-6, 15, 23-40, CEI, E1-E2, E4-E6, T01-T02, X01-X02
+  ASSERT BT-767-Lot is present
+    AS ERROR R-LTD-XCL
+    FOR BT-767-Lot
+    IN 16-18, 22, 29-31</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validation_stages"><a class="anchor" href="#_validation_stages"></a>Validation stages</h4>
+<div class="paragraph">
+<p>Rules are organised into stages (<code>---- STAGE stage-id ----</code>), each representing a validation phase (e.g. "1a", "3b", "4"). Each stage contains optional stage-level variable declarations and one or more rule-sets.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dynamic_rules"><a class="anchor" href="#_dynamic_rules"></a>Dynamic rules</h3>
+<div class="paragraph">
+<p>Dynamic rules allow validation to consider information retrieved from other notices through a specialised API. This replaces the EFX-1 cross-notice reference syntax (<code>notice(&#8230;&#8203;)</code>) which was impractical and never used.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">ENDPOINT "ted-api" AT "https://api.ted.europa.eu/v1";
+LET dynamic:?checkPreviousNotice(text:$noticeId) CALL API "ted-api" ON ERROR WARN;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>API endpoint declarations</strong>: <code>ENDPOINT "name" AT "url"</code> for named API endpoints, overridable at runtime.</p>
+</li>
+<li>
+<p><strong>Dynamic/API functions</strong>: <code>LET dynamic:?name(params) CALL API "endpoint"</code> with <code>ON ERROR WARN|REJECT</code> clauses.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rule_syntax"><a class="anchor" href="#_rule_syntax"></a>Rule syntax</h3>
+<div class="sect3">
+<h4 id="_rule_sets"><a class="anchor" href="#_rule_sets"></a>Rule-sets</h4>
+<div class="paragraph">
+<p>Multiple rules can share the same context via a single <code>WITH</code> clause, avoiding repetition of context declarations.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_assert_and_report"><a class="anchor" href="#_assert_and_report"></a>ASSERT and REPORT</h4>
+<div class="paragraph">
+<p>Two rule types with distinct semantics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ASSERT</code> defines a condition that <strong>must be true</strong> for the rule to pass. The rule fires (reports a violation) when the condition is false.</p>
+</li>
+<li>
+<p><code>REPORT</code> defines a condition that, <strong>when true</strong>, triggers a report.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conditional_rules"><a class="anchor" href="#_conditional_rules"></a>Conditional rules</h4>
+<div class="paragraph">
+<p>Rules can be conditionally applied using <code>WHEN</code> / <code>OTHERWISE</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">WITH ND-Root
+  WHEN ND-Lot is present
+    ASSERT BT-137-Lot is present
+      AS ERROR R-ABC-123 FOR BT-137-Lot IN 7-40
+  OTHERWISE
+    ASSERT ND-Part is present
+      AS ERROR R-ABC-124 FOR ND-Part IN 4-6, E2;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_severity_and_rule_id"><a class="anchor" href="#_severity_and_rule_id"></a>Severity and rule ID</h4>
+<div class="paragraph">
+<p>Each rule specifies a severity (<code>ERROR</code>, <code>WARNING</code>, <code>INFO</code>) and an identifier following the <code>R-XXX-XXX</code> pattern, used for error message translation lookup:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">AS ERROR R-001-001
+AS WARNING R-002-003
+AS INFO R-003-001</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_for_clause"><a class="anchor" href="#_for_clause"></a>FOR clause</h4>
+<div class="paragraph">
+<p><code>FOR field|node</code> specifies which field or node the rule validates. This is used to organise validators by target for efficient lookup.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_notice_type_targeting"><a class="anchor" href="#_notice_type_targeting"></a>Notice type targeting</h4>
+<div class="paragraph">
+<p><code>IN</code> specifies which notice types the rule applies to. Supports individual types, ranges, and wildcards:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">IN 1-3, 10-13, E1-E3    // Explicit ranges
+IN *                      // All notice types
+IN ANY                    // All notice types</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_scope_annotations"><a class="anchor" href="#_scope_annotations"></a>Scope annotations</h4>
+<div class="paragraph">
+<p><code>SCOPE</code> specifies rule applicability and categorisation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@PRE</code>&#8201;&#8212;&#8201;rule applies only during live validation (while editing).</p>
+</li>
+<li>
+<p><code>@POST</code>&#8201;&#8212;&#8201;rule applies only after submission.</p>
+</li>
+<li>
+<p><code>#flag</code>&#8201;&#8212;&#8201;categorisation flag (e.g. <code>#lawfulness</code>), carried over to SVRL output.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Omitting <code>@PRE</code>/<code>@POST</code> means the rule applies in both contexts.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_shared_between_efx_templates_and_efx_rules"><a class="anchor" href="#_shared_between_efx_templates_and_efx_rules"></a>Shared between EFX Templates and EFX Rules</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_include_directives"><a class="anchor" href="#_include_directives"></a>Include directives</h3>
+<div class="paragraph">
+<p>Template and rules files can be composed from fragments using <code>#include "path/to/file.efx"</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variable_declarations"><a class="anchor" href="#_variable_declarations"></a>Variable declarations</h3>
+<div class="paragraph">
+<p><code>LET type:$var = expression</code> for declaring typed variables (both scalar and sequence types), available as global declarations in templates and as global or stage-level declarations in rules.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_context_declaration_with_inline_variables"><a class="anchor" href="#_context_declaration_with_inline_variables"></a>Context declaration with inline variables</h3>
+<div class="paragraph">
+<p>The context declaration block (<code>WITH</code>) now supports local variable declarations before and/or after the context, allowing variables to be computed and reused within the scope of a template-block or rule-set.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">WITH ND-Organization,
+  text:$orgid = OPT-200-Organization-Company,
+  text*:$tpoid = OPT-201-Organization-TouchPoint
+  DISPLAY ${BT-500-Organization-Company:preferredLanguageText};</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comments"><a class="anchor" href="#_comments"></a>Comments</h3>
+<div class="paragraph">
+<p><code>//</code> comments are now supported everywhere (expressions, templates, rules).</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://x.com/EUPublications"> <img src="../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</div>  </body>
+</html>
