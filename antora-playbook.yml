@@ -51,7 +51,7 @@ content:
   ### eForms SDK
   - url: https://github.com/OP-TED/eforms-docs-playground.git
     start_path: /
-    branches: bugfix/1.12.x, 1.11.x, 1.11.x-generated, 1.10.x, 1.10.x-generated, 1.9.x, 1.9.x-generated, 1.8.x, 1.8.x-generated, 1.7.x, 1.7.x-generated, 1.6.x, 1.6.x-generated, 1.15.x, 1.15.x-generated, main # The "main" branch contains the eForms FAQ and RoadMap
+    branches: bugfix/1.12.x, 1.11.x, 1.11.x-generated, 1.10.x, 1.10.x-generated, 1.9.x, 1.9.x-generated, 1.8.x, 1.8.x-generated, 1.7.x, 1.7.x-generated, 1.6.x, 1.6.x-generated, 1.15.x, 1.15.x-generated, 1.14.x, 1.14.x-generated, main # The "main" branch contains the eForms FAQ and RoadMap
 
   ### Playground note: every non-eForms-SDK source below is commented out
   ### because this playground exists only to exercise the release wizard's
