@@ -2,6 +2,7 @@ site:
   title: TED Developer Docs
   url: https://docs.ted.europa.eu
   start_page: home::index.adoc
+  robots: disallow
 
 antora:
   extensions:
@@ -23,7 +24,7 @@ asciidoc:
     #
     # We want to know the latest version of each component so we can create a redirect for the latest version.
     # Such a redirect would be useful for users that want to bookmark a link to the latest documentation for a component.
-    # For example, we would be able to provide a link of the form: https://docs.ted.europa.eu/eforms/latest.  
+    # For example, we would be able to provide a link of the form: https://docs.ted.europa.eu/eforms/latest.
     # It is also nice to be able to indicate a component's version in the main navigation panel (modules/ROOT/nav.adoc).
     #
     # However, we do not currently have any other way to determine the latest version of a component outside a page in the component itself.
@@ -32,7 +33,7 @@ asciidoc:
     #
     eforms_latest_version: '1.14'
     epo_latest_version: '5.2.0'
-    espd_latest_version: '4.1.0'
+    espd_latest_version: '5.0.0'
     api_latest_version: '3.0'
 
   extensions:
@@ -48,36 +49,46 @@ content:
     branches: HEAD
 
   ### eForms SDK
-  - url: https://github.com/OP-TED/eforms-docs.git
+  - url: https://github.com/OP-TED/eforms-docs-playground.git
     start_path: /
-    branches: 1.14.x, 1.14.x-generated, 1.13.x, 1.13.x-generated, 1.12.x, 1.12.x-generated, main # The "main" branch contains the eForms FAQ and RoadMap
+    branches: bugfix/1.12.x, 1.11.x, 1.11.x-generated, 1.10.x, 1.10.x-generated, 1.9.x, 1.9.x-generated, 1.8.x, 1.8.x-generated, 1.7.x, 1.7.x-generated, 1.6.x, 1.6.x-generated, 1.15.x, 1.15.x-generated, main # The "main" branch contains the eForms FAQ and RoadMap
 
-  ### ePO Documentation
-  - url: https://github.com/OP-TED/epo-docs.git
-    start_path: /
-    branches: main, v*, wg-meetings
+  ### Playground note: every non-eForms-SDK source below is commented out
+  ### because this playground exists only to exercise the release wizard's
+  ### SDK-export flow. Skipping these sources cuts each Antora build from
+  ### several minutes (clone + render of every TED component) to seconds.
+  ### Restore by un-commenting if you ever need to mirror the full prod
+  ### site layout here.
+
+ ### ePO Documentation
+  # - url: https://github.com/OP-TED/epo-docs.git
+  #   start_path: /
+  #
+  #   branches: main-wf, v*, pre-v*, wg-meetings, workflow-imp
+
 
   ###  ESPD
-  - url: https://github.com/OP-TED/espd-docs.git
-    start_path: /
-    branches: main, v1.0.x, v2.0.x, v2.1.x, v3.0.x, v3.1.x, v3.2.x, v3.3.x, v4.0.x, v4.1.x, wgm-reports
-    #tags:
-    #- 2.1.0
+  # - url: https://github.com/OP-TED/espd-docs.git
+  #   start_path: /
+  #
+  #   branches: main, v1.0.x, v2.0.x, v2.1.x, v3.0.x, v3.1.x, v3.2.x, v3.3.x, v4.0.x, v4.1.x, v5.0.x,  v5.1.x ,wgm-reports
+    # v4.0.x, v4-A1-feedback
 
-    ### TED API
-  - url: https://github.com/OP-TED/tedapi-docs.git
-    start_path: /
-    branches: v2.0, v3.0 # The "main" branch contains unversioned content.
+
+  ### TED API
+  # - url: https://github.com/OP-TED/tedapi-docs.git
+  #   start_path: /
+  #   branches: v2.0, v3.0NoticeLifecycle # The "main" branch contains unversioned content.
 
   ### TED Semantic Web Service
-  - url: https://github.com/OP-TED/ted-rdf-docs
-    start_path: docs/antora
-    branches: main
-    
+  # - url: https://github.com/OP-TED/ted-rdf-docs
+  #   start_path: docs/antora
+  #   branches: develop
+
   ### model2owl
-  - url: https://github.com/OP-TED/ted-model2owl-docs
-    start_path: /
-    branches: main
+  # - url: https://github.com/OP-TED/ted-model2owl-docs
+  #   start_path: /
+  #   branches: main
 
 urls:
   redirect_facility: static
