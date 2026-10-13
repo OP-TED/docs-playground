@@ -1,43 +1,30 @@
+# Playground stub — replaces the real Antora build with a 60-second
+# no-op that always succeeds. The wizard's task-4 probe watches the
+# latest push-triggered workflow run on this repo's default branch;
+# the real Antora build needs node_modules + the eforms-docs-playground
+# source clone + the website build, none of which we want to maintain
+# here. This stub gives the wizard a realistic queued → in_progress →
+# completed (success) transition to observe without any of that.
+#
+# To replicate the real build on this repo, copy publish_site.yml back
+# from OP-TED/OP-TED.github.io and add the matching yarn.lock.
+
 name: Build and publish TED Developer Docs
 
 on:
   workflow_dispatch:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
-  publish_site:
-    name: "Build and publish site with Antora"
-    runs-on: [ubuntu-latest]
-    env:
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-      NODE_OPTIONS: '--max-old-space-size=8192'
+  simulate_publish:
+    name: Simulate publish (playground stub)
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js for use with actions
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install Corepack
-        run: npm install --prefix .node corepack
-
-      - name: Install Yarn
-        run: .node/node_modules/.bin/corepack enable --install-directory .node
-
-      - name: Install packages
-        run: .node/yarn install
-
-      - name: Generate site
-        run: yarn run build
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          token: "${{ github.token}}"
-          folder: build/site
-          branch: 'gh-pages'
-          commit-message: "[CI] Publish Documentation for ${{ github.sha }}"
+      - name: Idle for ~60s so the wizard can observe the transition
+        run: |
+          echo "Playground stub for the docs-publish workflow."
+          echo "Sleeping 60s to simulate a real build."
+          sleep 60
+          echo "Done — exit success."
