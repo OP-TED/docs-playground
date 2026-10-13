@@ -1,3 +1,14 @@
+# PLAYGROUND STAND-IN — deploys nothing.
+#
+# Production's publish_staging.yml (OP-TED/OP-TED.github.io, branch develop) builds the site
+# and deploys it to the REAL staging site, OP-TED/docs-staging, on every push to develop. The
+# release wizard pushes to this playground's develop during every docs-publication test, so the
+# production workflow must never run here: it is harmless today only because this playground
+# has no secrets.
+#
+# This stand-in keeps the same name and triggers, so any run the wizard might observe looks the
+# same, and does nothing.
+
 name: STAGING - Build and publish TED Developer Docs
 
 on:
@@ -9,47 +20,9 @@ on:
 jobs:
   publish_site:
     name: "Build and publish site with Antora"
-    runs-on: [ubuntu-latest]
-    env:
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
-      NODE_OPTIONS: '--max-old-space-size=8192'
-
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js for use with actions
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install Corepack
-        run: npm install --prefix .node corepack
-
-      - name: Install Yarn
-        run: .node/node_modules/.bin/corepack enable --install-directory .node
-
-      - name: Install packages
-        run: .node/yarn install
-
-      - name: Generate site
-        run: yarn run build
-
-      # Authenticate with GitHub App
-      - name: Generate GitHub App token
-        id: app-token
-        uses: tibdex/github-app-token@v2
-        with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-          installation_id: ${{ secrets.INSTALLATION_ID }}
-          
-      - name: Deploy staging (develop branch)
-        if: github.ref == 'refs/heads/develop'
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          repository-name: OP-TED/docs-staging
-          folder: build/site
-          branch: gh-pages
-          token: ${{ steps.app-token.outputs.token }}
-          commit-message: "[CI] Publish STAGING Docs for ${{ github.sha }}"
+      - name: Playground — nothing is built or deployed
+        run: |
+          echo "Playground stand-in for the staging deployment."
+          echo "Production would now build the site and deploy it to OP-TED/docs-staging."
