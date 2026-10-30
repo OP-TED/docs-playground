@@ -32,7 +32,7 @@ asciidoc:
     # So, as a workaround, we store the latest version of each component in these site-wide asciidoc attributes.
     # The downside is that we have to update these attributes whenever we release a new version of a component.
     #
-    eforms_latest_version: '1.15'
+    eforms_latest_version: '1.18'
     epo_latest_version: '5.2.0'
     espd_latest_version: '4.1.0'
     api_latest_version: '3.0'
@@ -53,7 +53,7 @@ content:
   # Playground: reads the eforms-docs playground instead of OP-TED/eforms-docs.
   - url: https://github.com/OP-TED/eforms-docs-playground.git
     start_path: /
-    branches: 1.15.x, 1.15.x-generated, 1.14.x, 1.14.x-generated, 1.13.x, 1.13.x-generated, 1.12.x, 1.12.x-generated, main # The "main" branch contains the eForms FAQ and RoadMap
+    branches: 1.15.x, 1.15.x-generated, 1.14.x, 1.14.x-generated, 1.13.x, 1.13.x-generated, 1.12.x, 1.12.x-generated, 1.18.x, 1.18.x-generated, main # The "main" branch contains the eForms FAQ and RoadMap
 
   ### Playground: every other source below is commented out. This playground only exercises
   ### the release wizard's eForms documentation publication; skipping the other components
