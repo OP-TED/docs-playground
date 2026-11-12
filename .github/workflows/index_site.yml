@@ -1,81 +1,24 @@
+# PLAYGROUND STAND-IN — indexes nothing.
+#
+# Production's index_site.yml (OP-TED/OP-TED.github.io) runs every night, reads the run history
+# of the PRODUCTION repository and, when the site was rebuilt, deletes and rebuilds the
+# PRODUCTION search index on Algolia. On this playground it must never run: it is harmless today
+# only because this playground has no secrets.
+#
+# This stand-in keeps the same name, runs only when started by hand (no nightly schedule), and
+# does nothing.
+
 name: Index TED Developer Docs
 
 on:
-  #workflow_dispatch
   workflow_dispatch:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '0 4 * * *'
-
-env:
-  JOBS_REPO: github.com/OP-TED/OP-TED.github.io
-  BUILD_JOB: Build and publish TED Developer Docs
-  INDEX_JOB: Index TED Developer Docs
 
 jobs:
-  check_if_should_index:
-    name: Check if site should be indexed
-    runs-on: [ubuntu-latest]
-    outputs:
-      shouldIndex: ${{ steps.checkShouldIndex.outputs.shouldIndex }}
-    steps:
-      - name: Find latest successful site build
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          lastBuildDate=$(gh run list -R $JOBS_REPO -w "$BUILD_JOB" --json conclusion,status,updatedAt --jq '.[] | select((.conclusion=="success") and (.status="completed")).updatedAt'|head -1); \
-          echo "lastBuildDate=${lastBuildDate}" >> $GITHUB_ENV
-
-      - name: Find latest successful site indexing
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-           lastIndexDate=$(gh run list -R $JOBS_REPO -w "$INDEX_JOB" --json conclusion,status,updatedAt --jq '.[] | select((.conclusion=="success") and (.status="completed")).updatedAt'|head -1); \
-           echo "lastIndexDate=${lastIndexDate}" >> $GITHUB_ENV
-
-      - name: Check if indexing should run
-        id: checkShouldIndex
-        run: |
-          if [ -z "${{ env.lastIndexDate }}" ]; then \
-            shouldIndex=true;
-          else
-            [ -n "${{ env.lastBuildDate }}" ] \
-            && [[ "$(date -d "${{ env.lastBuildDate }}" "+%Y%m%d%H%M%S")" > "$(date -d "${{ env.lastIndexDate }}" "+%Y%m%d%H%M%S")" ]] \
-            && shouldIndex=true || shouldIndex=false; \
-          fi; \
-          echo "shouldIndex=${shouldIndex}" >> ${GITHUB_OUTPUT}
-
-  delete_site_index:
-    name: "Delete existing site index"
-    needs: check_if_should_index
-    if: needs.check_if_should_index.outputs.shouldIndex == 'true'
-    runs-on: [ubuntu-latest]
-    steps:
-      - name: Download Algolia CLI
-        run: 'mkdir -p algolia-cli; curl -L "https://github.com/algolia/cli/releases/download/v1.6.11/algolia_1.6.11_linux_386.tar.gz"|tar xpz -C algolia-cli --strip-components=1'
-
-      - name: Create Algolia profile
-        run: ./algolia-cli/algolia profile add --name ted-profile --app-id ${{ secrets.ALGOLIA_APPLICATION_ID }} --api-key ${{ secrets.ALGOLIA_API_KEY }} --default
-
-      - name: Delete index ${{ secrets.ALGOLIA_INDEX_NAME }}
-        run:  |
-              ./algolia-cli/algolia indices list; \
-              if echo $(./algolia-cli/algolia indices list)|grep -q '${{ secrets.ALGOLIA_INDEX_NAME }}'; then \
-              ./algolia-cli/algolia indices delete -y ${{ secrets.ALGOLIA_INDEX_NAME }}; \
-              fi;
-
   index_site:
     name: "Index site using Docsearch Crawler"
-    needs: delete_site_index
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Get the content of docsearch-config.json as config
-        id: docsearch_config
-        run: echo "docsearch_config=$(cat config/docsearch-config.json | jq -r tostring)" >> ${GITHUB_ENV}
-
-      - name: Run DocSearch Scraper
+      - name: Playground — nothing is indexed
         run: |
-          docker run -e "APPLICATION_ID=${{ secrets.ALGOLIA_APPLICATION_ID }}" -e "API_KEY=${{ secrets.ALGOLIA_API_KEY }}" -e "CONFIG=$( cat config/docsearch-config.json | jq -r tostring )" algolia/docsearch-scraper
+          echo "Playground stand-in for the search indexing."
+          echo "Production would now rebuild the site's search index on Algolia."
